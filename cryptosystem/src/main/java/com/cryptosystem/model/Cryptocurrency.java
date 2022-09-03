@@ -1,15 +1,21 @@
 package com.cryptosystem.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+@DynamicUpdate
 public class Cryptocurrency {
 	@Id
 	private String currencyId;
+	@Column
 	private String name;
-	private String abbreviation;
+	@Column
 	private double bidPrice;
+	@Column
 	private double askPrice;
 
 	public String getCurrencyId() {
@@ -26,14 +32,6 @@ public class Cryptocurrency {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getAbbreviation() {
-		return abbreviation;
-	}
-
-	public void setAbbreviation(String abbreviation) {
-		this.abbreviation = abbreviation;
 	}
 
 	public double getBidPrice() {

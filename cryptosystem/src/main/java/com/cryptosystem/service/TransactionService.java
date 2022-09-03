@@ -1,5 +1,5 @@
 package com.cryptosystem.service;
 
-public class TransactionService {
+public interface TransactionService {
 
 }
