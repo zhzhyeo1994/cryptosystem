@@ -1,20 +1,53 @@
 package com.cryptosystem.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Transaction {
 	@Id
 	private String transactionId;
+	@Column
 	private String walletId;
-	private String txn_id;
+	@Column
+	private String txnId;
+	@Column
 	private String status;
+	@Column
 	private double totalCost;
-	private int tokenAmount;
-	private String currencyId;
+	@Column
+	private double tokenAmount;
+	@Column
 	private String type;
+	@Column
 	private String paymentBy;
+	@Column
+	private Date tradeDate;
+
+	@OneToOne
+	@JoinColumn(name = "currency_id", referencedColumnName = "currencyId")
+	private Cryptocurrency crypto;
+	
+	public Transaction() {}
+
+	public Transaction(String transactionId, String txnId, String status, double totalCost, double tokenAmount,
+			String type, String paymentBy, Cryptocurrency crypto) {
+		super();
+		this.transactionId = transactionId;
+		this.txnId = txnId;
+		this.status = status;
+		this.totalCost = totalCost;
+		this.tokenAmount = tokenAmount;
+		this.type = type;
+		this.paymentBy = paymentBy;
+		this.crypto = crypto;
+	}
 
 	public String getTransactionId() {
 		return transactionId;
@@ -24,6 +57,7 @@ public class Transaction {
 		this.transactionId = transactionId;
 	}
 
+
 	public String getWalletId() {
 		return walletId;
 	}
@@ -32,12 +66,12 @@ public class Transaction {
 		this.walletId = walletId;
 	}
 
-	public String getTxn_id() {
-		return txn_id;
+	public String getTxnId() {
+		return txnId;
 	}
 
-	public void setTxn_id(String txn_id) {
-		this.txn_id = txn_id;
+	public void setTxnId(String txnId) {
+		this.txnId = txnId;
 	}
 
 	public String getStatus() {
@@ -56,20 +90,12 @@ public class Transaction {
 		this.totalCost = totalCost;
 	}
 
-	public int getTokenAmount() {
+	public double getTokenAmount() {
 		return tokenAmount;
 	}
 
-	public void setTokenAmount(int tokenAmount) {
+	public void setTokenAmount(double tokenAmount) {
 		this.tokenAmount = tokenAmount;
-	}
-
-	public String getCurrencyId() {
-		return currencyId;
-	}
-
-	public void setCurrencyId(String currencyId) {
-		this.currencyId = currencyId;
 	}
 
 	public String getType() {
@@ -86,6 +112,22 @@ public class Transaction {
 
 	public void setPaymentBy(String paymentBy) {
 		this.paymentBy = paymentBy;
+	}
+
+	public Cryptocurrency getCrypto() {
+		return crypto;
+	}
+
+	public void setCrypto(Cryptocurrency crypto) {
+		this.crypto = crypto;
+	}
+
+	public Date getTradeDate() {
+		return tradeDate;
+	}
+
+	public void setTradeDate(Date tradeDate) {
+		this.tradeDate = tradeDate;
 	}
 
 }
