@@ -125,11 +125,9 @@ Data is initialized for customer and currency table. There will be one customer 
 
 ```
 {
-    "currencyId": "BTCUSDT",
-    "orderType": "BUY",
-    "tokenAmount":  1,
-    "orderPrice": 19722.9,
-    "customerId": "C1W1"
+    "tokenValue": 19722.9,
+    "tokenAmount": 1.0,
+    "symbol": "BTCUSDT"
 }
 ```
 **Return** <br>
