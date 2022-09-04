@@ -203,7 +203,7 @@ Exceptions will be thrown.
     "customerId": "C1W1"
 }
 ```
-**Exceptions**
-PriceChangedException will be thrown if buy order have a order price lower than ask price or if sell order have a order price lower than the bid price.
-InsufficientValueException will be thrown if customer buy or sell an amount that they cannot afford.
+**Exceptions** <br>
+PriceChangedException will be thrown if buy order have a order price lower than ask price or if sell order have a order price lower than the bid price. <br>
+InsufficientValueException will be thrown if customer buy or sell an amount that they cannot afford. <br>
 ___
